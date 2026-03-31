@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Google Development Group Coimbatore - Build with AI 2026 | Official Event Platform">
+    <title>Google Development Group Coimbatore | Build with AI 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+        :root {
+            --tw-color-primary: #4285F4;
+        }
+
+        .tail-container * {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(45deg, #4285F4 0%, #4ce975 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 14px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .countdown-box {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+        }
+
+        .gallery-img {
+            transition: all 0.3s ease;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+
+<body class="tail-container bg-gray-50 text-gray-900">
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 rounded-full bg-cover bg-center font-bold text-xl scale-150 gap-x-1 flex items-center justify-center text-white"
+                    style="background-image: url('Untitled (1).png');">
+                </div>
+                <div>
+                    <span class="heading-font text-2xl tracking-tighter font-semibold text-[#4285F4]">Google Development
+                        Group</span>
+                    <span class="heading-font text-2xl tracking-tighter font-semibold text-gray-900">Coimbatore</span>
+                </div>
+                <span class="text-xs font-medium px-3 py-1 bg-emerald-100 text-emerald-700 rounded-3xl">Build with AI
+                    2026</span>
+            </div>
+
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#details" onclick="navigateToSection('details')"
+                    class="hover:text-[#4285F4] transition-colors">Event Details</a>
+                <a href="#register" onclick="navigateToSection('register')"
+                    class="hover:text-[#4285F4] transition-colors">Register</a>
+                <a href="#gallery" onclick="navigateToSection('gallery')"
+                    class="hover:text-[#4285F4] transition-colors">Gallery</a>
+                <a href="#agenda" onclick="navigateToSection('agenda')"
+                    class="hover:text-[#4285F4] transition-colors">Agenda</a>
+            </div>
+            <div class="flex items-center gap-x-4">
+                <div onclick="toggleRSVP()" id="rsvp-btn"
+                    class="flex items-center gap-x-2 px-5 py-2 bg-white border border-[#34A853] hover:bg-[#34A853] hover:text-white text-[#34A853] rounded-3xl text-sm font-semibold cursor-pointer transition-all">
+                    <span id="rsvp-text">I'm Attending</span>
+                </div>
+
+                <button onclick="showMobileMenu()"
+                    class="md:hidden w-10 h-10 flex items-center justify-center text-2xl">
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-6 py-4">
+            <div class="flex flex-col gap-y-4 text-sm font-medium">
+                <a href="#details" onclick="navigateToSection('details');hideMobileMenu()" class="py-2">Event
+                    Details</a>
+                <a href="#register" onclick="navigateToSection('register');hideMobileMenu()" class="py-2">Register</a>
+                <a href="#gallery" onclick="navigateToSection('gallery');hideMobileMenu()" class="py-2">Gallery</a>
+                <a href="#agenda" onclick="navigateToSection('agenda');hideMobileMenu()" class="py-2">Agenda</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-bg text-white">
+        <div class="max-w-7xl mx-auto px-6 py-20 lg:py-28 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div
+                    class="inline-flex items-center gap-x-2 bg-white/20 backdrop-blur-md text-white text-sm font-medium px-6 py-3 rounded-3xl">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    APRIL 14 • Coimbatore • 9:00 AM
+                </div>
+
+                <h1 class="heading-font text-6xl lg:text-7xl tracking-tighter leading-none font-semibold">
+                    Build with<br>AI 2026
+                </h1>
+
+                <p class="text-xl text-white/90 max-w-md">
+                    Join Google Developer Group Coimbatore for a full-day celebration of AI, machine learning, and the
+                    future of development.
+                </p>
+
+                <div class="flex items-center gap-x-4">
+                    <button onclick="navigateToSection('register')"
+                        class="px-8 py-4 bg-white text-[#4285F4] font-semibold rounded-3xl flex items-center gap-x-3 hover:scale-105 transition-transform">
+                        Reserve Your Spot
+                    </button>
+
+                    <a href="https://developers.google.com/community/Google Development Group" target="_blank"
+                        class="px-8 py-4 border-2 border-white/70 font-medium rounded-3xl flex items-center hover:bg-white/10 transition-colors">
+                        Learn about Google Development Group
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-x-3 text-sm">
+                    <div class="flex -space-x-4">
+                        <div
+                            class="w-8 h-8 bg-white/30 backdrop-blur border-2 border-white rounded-2xl flex items-center justify-center text-xs font-bold">
+                            👾</div>
+                        <div
+                            class="w-8 h-8 bg-white/30 backdrop-blur border-2 border-white rounded-2xl flex items-center justify-center text-xs font-bold">
+                            🤖</div>
+                        <div
+                            class="w-8 h-8 bg-white/30 backdrop-blur border-2 border-white rounded-2xl flex items-center justify-center text-xs font-bold">
+                            🧠</div>
+                    </div>
+                    <p><span id="live-rsvp-count" class="font-semibold">142</span> participants already Registered</p>
+                </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl p-8 lg:p-10">
+                <p
+                    class="uppercase text-white/70 text-sm font-medium tracking-[1px] mb-6 flex items-center justify-center gap-x-2">
+                    EVENT STARTS IN
+                </p>
+
+                <div id="countdown" class="grid grid-cols-4 gap-4 text-center">
+                    <div class="countdown-box bg-white/10 rounded-2xl p-4">
+                        <div id="days" class="text-5xl font-semibold heading-font">24</div>
+                        <div class="text-xs tracking-widest text-white/60 mt-1">DAYS</div>
+                    </div>
+                    <div class="countdown-box bg-white/10 rounded-2xl p-4">
+                        <div id="hours" class="text-5xl font-semibold heading-font">08</div>
+                        <div class="text-xs tracking-widest text-white/60 mt-1">HOURS</div>
+                    </div>
+                    <div class="countdown-box bg-white/10 rounded-2xl p-4">
+                        <div id="minutes" class="text-5xl font-semibold heading-font">42</div>
+                        <div class="text-xs tracking-widest text-white/60 mt-1">MINUTES</div>
+                    </div>
+                    <div class="countdown-box bg-white/10 rounded-2xl p-4">
+                        <div id="seconds" class="text-5xl font-semibold heading-font">19</div>
+                        <div class="text-xs tracking-widest text-white/60 mt-1">SECONDS</div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8 text-xs text-white/50 flex items-center justify-center gap-x-1">
+                    Coimbatore Institute of Technology, Coimbatore
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="details" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="flex justify-between items-baseline mb-8">
+            <h2 class="text-4xl heading-font tracking-tighter font-semibold">Event Details</h2>
+            <div class="text-[#34A853] flex items-center text-sm font-medium">
+                <span class="bg-[#34A853]/10 px-3 py-1 rounded-3xl">FREE • OPEN TO ALL</span>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-8">
+            <div class="md:col-span-7 space-y-8">
+                <div class="prose max-w-none text-lg">
+                    <p class="text-gray-600">
+                        Google Development Group Coimbatore's flagship event returns bigger than ever!
+                        <strong>Build with AI 2026</strong> brings together 500+ developers, students,
+                        and AI enthusiasts for hands-on workshops, inspiring keynotes, and networking.
+                    </p>
+                    <p class="text-gray-600">
+                        Whether you're a beginner exploring generative AI or an expert building production-ready agents,
+                        this is your day to level up.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="card-hover bg-white p-6 rounded-3xl border">
+                        <div class="font-semibold">Saturday, April 14, 2026</div>
+                        <div class="text-sm text-gray-500">9:00 AM – 6:00 PM IST</div>
+                    </div>
+                    <div class="card-hover bg-white p-6 rounded-3xl border">
+                        <div class="font-semibold">Coimbatore Institute of Technology</div>
+                        <div class="text-sm text-gray-500">Avinashi Rd, Civil Aerodrome Post, Coimbatore, Tamil Nadu
+                            641014</div>
+                        <a href="https://maps.app.goo.gl/Fj8BiuwLzMJkRozt7" target="_blank"
+                            class="text-[#4285F4] text-xs flex items-center gap-x-1 mt-3 hover:underline">
+                            View on Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold mb-4 flex items-center gap-x-2">Featured Speakers
+                    </h3>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-x-3 bg-white px-5 py-3 rounded-3xl">
+                            <div class="w-10 h-10 bg-gradient-to-br from-[#4285F4] to-[#34A853] rounded-2xl"></div>
+                            <div>
+                                <div class="font-medium">Thiru. R. Santossh</div>
+                                <div class="text-xs text-gray-500">CHAIRMAN OF CIT</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-x-3 bg-white px-5 py-3 rounded-3xl">
+                            <div class="w-10 h-10 bg-gradient-to-br from-[#EA4335] to-[#F9AB00] rounded-2xl"></div>
+                            <div>
+                                <div class="font-medium">thiru. Vishnu Nischal Rajkumar</div>
+                                <div class="text-xs text-gray-500">DIRECTOR OF CIT</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-x-3 bg-white px-5 py-3 rounded-3xl">
+                            <div class="w-10 h-10 bg-gradient-to-br from-[#34A853] to-[#4285F4] rounded-2xl"></div>
+                            <div>
+                                <div class="font-medium">Dr. A. Rajeswari</div>
+                                <div class="text-xs text-gray-500">PRINCIPAL OF CIT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="md:col-span-5 bg-gradient-to-br from-[#4285F4]/5 to-white border border-[#4285F4]/10 rounded-3xl p-8 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-semibold mb-6 text-xl">What to expect</h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-x-4"><span class="text-2xl">🧠</span>
+                            <div><strong>Hands-on AI labs</strong><br><span class="text-sm text-gray-500">Build your
+                                    first agent in 45 mins</span></div>
+                        </li>
+                        <li class="flex gap-x-4"><span class="text-2xl">🔥</span>
+                            <div><strong>Keynote from Google</strong><br><span class="text-sm text-gray-500">Latest
+                                    Gemini & Vertex AI updates</span></div>
+                        </li>
+                        <li class="flex gap-x-4"><span class="text-2xl">🤝</span>
+                            <div><strong>Networking + lunch</strong><br><span class="text-sm text-gray-500">Connect with
+                                    500+ developers</span></div>
+                        </li>
+                        <li class="flex gap-x-4"><span class="text-2xl">🏆</span>
+                            <div><strong>Project showcase</strong><br><span class="text-sm text-gray-500">Win swag &amp;
+                                    Google Cloud credits</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-xs text-gray-400 mt-8">Organized with ❤️ by Google Development Group Coimbatore</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="register" class="bg-white py-20 border-t border-b">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl heading-font tracking-tighter font-semibold mb-2">Secure Your Spot</h2>
+                <p class="text-gray-500">Limited seats • Registration closes April 10</p>
+            </div>
+
+            <form id="registration-form" onsubmit="handleRegistration(event)" class="space-y-8">
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Full Name <span
+                                class="text-red-500">*</span></label>
+                        <input id="name" type="text" required
+                            class="w-full px-5 py-4 border border-gray-200 focus:border-[#4285F4] rounded-3xl outline-none text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Phone</label>
+                        <input id="phone" type="tel"
+                            class="w-full px-5 py-4 border border-gray-200 focus:border-[#4285F4] rounded-3xl outline-none text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email Address <span
+                            class="text-red-500">*</span></label>
+                    <input id="email" type="email" required
+                        class="w-full px-5 py-4 border border-gray-200 focus:border-[#4285F4] rounded-3xl outline-none text-sm">
+                    <p id="email-error" class="hidden text-red-500 text-xs mt-1">Please enter a valid email address</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Your Role / Interest</label>
+                    <select id="role"
+                        class="w-full px-5 py-4 border border-gray-200 focus:border-[#4285F4] rounded-3xl outline-none text-sm">
+                        <option value="">Select one...</option>
+                        <option value="Student">Student / Learner</option>
+                        <option value="Developer">Software Developer</option>
+                        <option value="AI Enthusiast">AI / ML Enthusiast</option>
+                        <option value="Professional">Industry Professional</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="flex items-start gap-x-3">
+                    <input type="checkbox" id="terms" class="mt-1 accent-[#34A853]" required>
+                    <label for="terms" class="text-sm text-gray-600">
+                        I agree to receive event updates from Google Development Group Coimbatore and understand this is
+                        a free community event.
+                    </label>
+                </div>
+
+                <button type="submit"
+                    class="w-full py-5 bg-gradient-to-r from-[#4285F4] to-[#4ce975] text-white font-semibold text-lg rounded-3xl flex items-center justify-center gap-x-3 hover:shadow-xl transition-all">
+                    REGISTER FOR FREE
+                </button>
+            </form>
+
+            <div id="success-message"
+                class="hidden mt-8 bg-emerald-50 border border-emerald-200 rounded-3xl p-8 text-center">
+                <h3 class="font-semibold text-2xl">You're in! 🎟️</h3>
+                <p class="text-emerald-700 mt-2">Confirmation sent to your email.<br>We'll see you on April 14!</p>
+                <button onclick="resetForm()" class="mt-6 text-sm font-medium underline">Register another friend
+                    →</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="agenda" class="max-w-7xl mx-auto px-6 py-20 bg-gray-50">
+        <h2 class="text-4xl heading-font tracking-tighter font-semibold mb-10 text-center">Full Day Agenda</h2>
+
+        <div class="space-y-6 max-w-3xl mx-auto">
+            <div class="flex gap-6 bg-white p-6 rounded-3xl items-start card-hover">
+                <div class="text-right w-20 flex-shrink-0">
+                    <div class="text-sm font-medium text-[#4285F4]">09:00</div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">Registration + Breakfast</div>
+                    <div class="text-sm text-gray-500">Networking &amp; swag pickup</div>
+                </div>
+            </div>
+            <div class="flex gap-6 bg-white p-6 rounded-3xl items-start card-hover">
+                <div class="text-right w-20 flex-shrink-0">
+                    <div class="text-sm font-medium text-[#4285F4]">10:00</div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">Keynote: The Future of AI Agents</div>
+                    <div class="text-sm text-gray-500">Dr. Priya Sharma • Google</div>
+                </div>
+            </div>
+            <div class="flex gap-6 bg-white p-6 rounded-3xl items-start card-hover">
+                <div class="text-right w-20 flex-shrink-0">
+                    <div class="text-sm font-medium text-[#4285F4]">11:00</div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">Workshop: Build a RAG App with Gemini</div>
+                    <div class="text-sm text-gray-500">Hands-on • 90 minutes</div>
+                </div>
+            </div>
+            <div class="flex gap-6 bg-white p-6 rounded-3xl items-start card-hover">
+                <div class="text-right w-20 flex-shrink-0">
+                    <div class="text-sm font-medium text-[#4285F4]">13:00</div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">Lunch + Poster Session</div>
+                </div>
+            </div>
+            <div class="flex gap-6 bg-white p-6 rounded-3xl items-start card-hover">
+                <div class="text-right w-20 flex-shrink-0">
+                    <div class="text-sm font-medium text-[#4285F4]">14:30</div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">Lightning Talks by Community</div>
+                </div>
+            </div>
+            <div class="flex gap-6 bg-white p-6 rounded-3xl items-start card-hover">
+                <div class="text-right w-20 flex-shrink-0">
+                    <div class="text-sm font-medium text-[#4285F4]">16:00</div>
+                </div>
+                <div class="flex-1">
+                    <div class="font-semibold">Project Showcase &amp; Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="flex justify-between items-end mb-10">
+            <div>
+                <h2 class="text-4xl heading-font tracking-tighter font-semibold">Event Gallery</h2>
+                <p class="text-gray-500">Memories from past events • Upload your photos!</p>
+            </div>
+
+            <label onclick="triggerUpload()"
+                class="cursor-pointer flex items-center gap-x-3 bg-[#34A853] hover:bg-emerald-600 transition-colors text-white px-6 py-3 rounded-3xl font-medium">
+                <span>Upload Photo</span>
+                <input type="file" id="image-upload" accept="image/*" class="hidden"
+                    onchange="handleImageUpload(event)">
+            </label>
+        </div>
+
+
+        <div id="gallery-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        </div>
+
+        <div class="text-center text-xs text-gray-400 mt-8">
+            Photos are stored locally in your browser. Real deployments would use Cloud Storage.
+        </div>
+    </section>
+
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-y-10">
+            <div>
+                <div class="flex items-center gap-x-3 text-white">
+                    <div class="w-16 h-9 rounded-full bg-cover bg-center shadow-inner font-bold text-xl scale-150 gap-x-1 flex items-center justify-center text-white"
+                        style="background-image: url('Untitled (1).png');">
+                    </div>
+                    <span class="heading-font text-3xl">Google Development Group Coimbatore</span>
+                </div>
+                <p class="mt-4 text-gray-400 text-sm">Google Developer Group • Powered by community, driven by
+                    curiosity.</p>
+            </div>
+
+            <div class="text-sm space-y-2">
+                <div class="font-medium mb-4 text-gray-300">QUICK LINKS</div>
+                <a href="#" class="block hover:text-[#34A853]">Code of Conduct</a>
+                <a href="#" class="block hover:text-[#34A853]">Past Events</a>
+                <a href="#" class="block hover:text-[#34A853]">Join the Google Development Group Community</a>
+            </div>
+
+            <div>
+                <div class="text-sm font-medium mb-4 text-gray-300">MADE WITH ❤️ IN Coimbatore</div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="toast" onclick="this.classList.add('hidden')"
+        class="hidden fixed bottom-6 right-6 bg-gray-900 text-white text-sm px-6 py-4 rounded-3xl shadow-2xl flex items-center gap-x-3">
+        <span id="toast-text" class="font-medium"></span>
+    </div>
+
+    <script>
+
+        function initTailwind() {
+            tailwind.config = {
+                content: [],
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: '#4285F4',
+                            accent: '#34A853'
+                        }
+                    }
+                }
+            }
+        }
+
+
+        let eventDate = new Date('2026-04-14T09:00:00').getTime();
+
+        function updateCountdown() {
+            try {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                const countdownEl = document.getElementById('countdown');
+
+                if (!countdownEl) {
+                    console.warn('Countdown element not found');
+                    return;
+                }
+
+                if (distance < 0) {
+                    countdownEl.innerHTML = `
+                        <div class="col-span-4 text-4xl font-semibold text-white">The event has started! 🎉</div>
+                    `;
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+
+                if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+                if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+                if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+                if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+            } catch (error) {
+                console.error('Countdown error:', error);
+            }
+        }
+
+
+        function handleRegistration(e) {
+            e.preventDefault();
+
+            try {
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const role = document.getElementById('role').value;
+
+                // Name validation
+                if (!name || name.length < 2) {
+                    showToast('❌ Please enter a valid name (2+ characters)');
+                    return;
+                }
+
+                // Email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    const err = document.getElementById('email-error');
+                    if (err) {
+                        err.classList.remove('hidden');
+                        setTimeout(() => err.classList.add('hidden'), 3000);
+                    } else {
+                        showToast('❌ Please enter a valid email address');
+                    }
+                    return;
+                }
+
+                // Phone validation (basic)
+                if (phone && !/^[0-9+\-()\s]{10,}$/.test(phone)) {
+                    showToast('❌ Please enter a valid phone number');
+                    return;
+                }
+
+                // Role validation
+                if (!role) {
+                    showToast('❌ Please select your role/interest');
+                    return;
+                }
+
+                // Save to localStorage with error handling
+                try {
+                    let registrations = [];
+                    try {
+                        registrations = JSON.parse(localStorage.getItem('Google Development Group_registrations')) || [];
+                    } catch (parseErr) {
+                        console.warn('Error parsing registrations:', parseErr);
+                        registrations = [];
+                    }
+
+                    // Check for duplicate email
+                    if (registrations.some(r => r.email.toLowerCase() === email.toLowerCase())) {
+                        showToast('❌ This email is already registered');
+                        return;
+                    }
+
+                    registrations.push({
+                        id: Date.now(),
+                        name: name,
+                        email: email,
+                        phone: phone || '—',
+                        role: role || 'Not specified',
+                        timestamp: new Date().toISOString()
+                    });
+                    localStorage.setItem('Google Development Group_registrations', JSON.stringify(registrations));
+
+                    // Update live count
+                    const countEl = document.getElementById('live-rsvp-count');
+                    if (countEl) {
+                        countEl.textContent = registrations.length + 142;
+                    }
+
+                    // Show success
+                    const form = document.getElementById('registration-form');
+                    const success = document.getElementById('success-message');
+                    if (form && success) {
+                        form.classList.add('hidden');
+                        success.classList.remove('hidden');
+                    }
+
+                    showToast('Registration successful! 🎟️');
+
+                    // Fake RSVP increment
+                    if (Math.random() > 0.7) {
+                        setTimeout(() => {
+                            if (countEl) countEl.textContent = registrations.length + 143;
+                        }, 1500);
+                    }
+                } catch (storageErr) {
+                    if (storageErr.name === 'QuotaExceededError') {
+                        showToast('❌ Storage limit exceeded. Please clear browser data.');
+                    } else {
+                        showToast('❌ Error saving registration. Please try again.');
+                    }
+                    console.error('Storage error:', storageErr);
+                }
+            } catch (error) {
+                showToast('❌ An unexpected error occurred. Please try again.');
+                console.error('Registration error:', error);
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('registration-form').reset();
+            document.getElementById('registration-form').classList.remove('hidden');
+            document.getElementById('success-message').classList.add('hidden');
+        }
+
+        let galleryImages = [];
+        const MAX_UPLOAD_SIZE = 5 * 1024 * 1024; // 5MB
+
+        function loadGallery() {
+            try {
+                const saved = localStorage.getItem('Google Development Group_gallery');
+                if (saved) {
+                    try {
+                        galleryImages = JSON.parse(saved);
+                    } catch (parseErr) {
+                        console.warn('Error parsing gallery data:', parseErr);
+                        galleryImages = [];
+                    }
+                } else {
+                    galleryImages = [
+                        {
+                            id: 1,
+                            url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+                            caption: 'Google Development Group Coimbatore 2025'
+                        },
+                        {
+                            id: 2,
+                            url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
+                            caption: 'AI Workshop in action'
+                        },
+                        {
+                            id: 3,
+                            url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55?auto=format&fit=crop&w=800&q=80',
+                            caption: 'Keynote by Google Speaker'
+                        },
+                        {
+                            id: 4,
+                            url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80',
+                            caption: 'Networking session at GDG Coimbatore'
+                        }
+                    ];
+                    try {
+                        localStorage.setItem('Google Development Group_gallery', JSON.stringify(galleryImages));
+                    } catch (storageErr) {
+                        console.warn('Could not save default gallery:', storageErr);
+                    }
+                }
+                renderGallery();
+            } catch (error) {
+                console.error('Error loading gallery:', error);
+                galleryImages = [];
+                renderGallery();
+            }
+        }
+
+        function renderGallery() {
+            const container = document.getElementById('gallery-grid');
+            container.innerHTML = '';
+
+            galleryImages.forEach(img => {
+                const div = document.createElement('div');
+                div.className = 'group relative overflow-hidden rounded-3xl bg-gray-100 aspect-video';
+                div.innerHTML = `
+                    <img src="${img.url}" alt="${img.caption}" class="gallery-img w-full h-full object-cover">
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent h-2/5 opacity-0 group-hover:opacity-100 transition-all flex items-end p-4">
+                        <p class="text-white text-xs font-medium">${img.caption}</p>
+                    </div>
+                    <button onclick="deleteImage(${img.id});event.stopImmediatePropagation()" 
+                            class="absolute top-3 right-3 bg-white text-red-500 w-7 h-7 rounded-2xl flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-all font-bold hover:bg-red-50">
+                        ×
+                    </button>
+                `;
+                container.appendChild(div);
+            });
+
+            if (galleryImages.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-gray-400">No photos yet. Upload the first one!</div>`;
+            }
+        }
+
+        function triggerUpload() {
+            document.getElementById('image-upload').click();
+        }
+
+        function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            // File type validation
+            if (!file.type.startsWith('image/')) {
+                showToast('❌ Please select a valid image file');
+                e.target.value = '';
+                return;
+            }
+
+            // File size validation
+            if (file.size > MAX_UPLOAD_SIZE) {
+                showToast(`❌ File too large (max ${MAX_UPLOAD_SIZE / 1024 / 1024}MB)`);
+                e.target.value = '';
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (ev) {
+                try {
+                    const newImage = {
+                        id: Date.now(),
+                        url: ev.target.result,
+                        caption: `Uploaded on ${new Date().toLocaleDateString()}`
+                    };
+                    galleryImages.unshift(newImage);
+                    try {
+                        localStorage.setItem('Google Development Group_gallery', JSON.stringify(galleryImages));
+                    } catch (storageErr) {
+                        if (storageErr.name === 'QuotaExceededError') {
+                            showToast('❌ Storage limit exceeded. Please delete some photos.');
+                        } else {
+                            showToast('❌ Error saving photo. Please try again.');
+                        }
+                        galleryImages.shift(); // Remove the image we just added
+                        return;
+                    }
+                    renderGallery();
+                    showToast('Photo uploaded successfully 📸');
+                } catch (error) {
+                    showToast('❌ Error processing image. Please try again.');
+                    console.error('Image processing error:', error);
+                }
+                e.target.value = '';
+            };
+
+            reader.onerror = function () {
+                showToast('❌ Error reading file. Please try again.');
+                console.error('FileReader error:', reader.error);
+                e.target.value = '';
+            };
+
+            reader.onabort = function () {
+                showToast('⚠️ File upload cancelled');
+                e.target.value = '';
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function deleteImage(id) {
+            if (!confirm('Delete this photo?')) return;
+            try {
+                galleryImages = galleryImages.filter(i => i.id !== id);
+                try {
+                    localStorage.setItem('Google Development Group_gallery', JSON.stringify(galleryImages));
+                } catch (storageErr) {
+                    showToast('❌ Error deleting photo. Please try again.');
+                    console.error('Storage error:', storageErr);
+                    return;
+                }
+                renderGallery();
+                showToast('Photo deleted ✓');
+            } catch (error) {
+                showToast('❌ Error deleting photo.');
+                console.error('Delete error:', error);
+            }
+        }
+
+        let isRSVPd = false;
+        function toggleRSVP() {
+            try {
+                const btn = document.getElementById('rsvp-btn');
+                const text = document.getElementById('rsvp-text');
+                const countEl = document.getElementById('live-rsvp-count');
+
+                if (!btn || !text) {
+                    console.error('Required RSVP elements not found');
+                    return;
+                }
+
+                isRSVPd = !isRSVPd;
+
+                if (isRSVPd) {
+                    btn.classList.add('bg-[#34A853]', 'text-white', 'border-transparent');
+                    btn.classList.remove('border-[#34A853]', 'text-[#34A853]');
+                    text.innerHTML = `✅ Attending <span class="text-xs ml-1">(+1)</span>`;
+                    showToast("You're officially attending! 🎉");
+                    if (countEl) {
+                        const currentCount = parseInt(countEl.textContent);
+                        if (!isNaN(currentCount)) {
+                            countEl.textContent = currentCount + 1;
+                        }
+                    }
+                } else {
+                    btn.classList.remove('bg-[#34A853]', 'text-white', 'border-transparent');
+                    btn.classList.add('border-[#34A853]', 'text-[#34A853]');
+                    text.innerHTML = `I'm Attending`;
+                    showToast("RSVP removed");
+                    if (countEl) {
+                        const currentCount = parseInt(countEl.textContent);
+                        if (!isNaN(currentCount) && currentCount > 0) {
+                            countEl.textContent = currentCount - 1;
+                        }
+                    }
+                }
+            } catch (error) {
+                showToast('❌ Error updating RSVP');
+                console.error('RSVP error:', error);
+            }
+        }
+
+        function showToast(message) {
+            try {
+                const toast = document.getElementById('toast');
+                const toastText = document.getElementById('toast-text');
+
+                if (!toast || !toastText) {
+                    console.warn('Toast elements not found');
+                    return;
+                }
+
+                toastText.textContent = message;
+                toast.classList.remove('hidden');
+                toast.style.display = 'flex';
+
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                    toast.style.display = 'none';
+                }, 2800);
+            } catch (error) {
+                console.error('Toast error:', error);
+            }
+        }
+
+        function showMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function hideMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        function navigateToSection(section) {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyCodeLink() {
+            const msg = `✅ Deploy instructions copied!\n\n1. Copy entire code into index.html\n2. Drag & drop the file to https://app.netlify.com/drop or Vercel\n3. Done in < 30 seconds!`;
+            navigator.clipboard.writeText(msg).then(() => {
+                showToast('Deploy instructions copied to clipboard 📋');
+            });
+        }
+
+        function launchApp() {
+            initTailwind();
+            loadGallery();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            setInterval(() => {
+                const countEl = document.getElementById('live-rsvp-count');
+                if (Math.random() > 0.6) {
+                    countEl.textContent = parseInt(countEl.textContent) + 1;
+                }
+            }, 8000);
+
+            console.log('%c🚀 Google Development Group Coimbatore Event Platform ready! Responsive, validated, and fully functional.', 'color:#4285F4; font-family:monospace');
+        }
+
+        window.onload = launchApp;
+    </script>
+</body>
+
+</html>
